@@ -31,54 +31,6 @@ public:
         //Create the pair!
         pointerTypePairs.push_back(std::make_pair(new ListElement<NEW_TYPE>(data), typeid(data).name()));
     }
-
-    virtual void displayGenericList() {
-
-        //RTTI garbage, this is slow and only supports basic types
-        //Room for improvement but leaving this way for now
-        for (auto pointerTypePair : pointerTypePairs) {
-            if (pointerTypePair.second == typeid(int).name()) {
-                ListElement<int>* ele = static_cast<ListElement<int>*>(pointerTypePair.first);
-                std::cout << ele->getData() << std::endl;
-            }
-            else if (pointerTypePair.second == typeid(double).name()) {
-                ListElement<double>* ele = static_cast<ListElement<double>*>(pointerTypePair.first);
-                std::cout << ele->getData() << std::endl;
-            }
-            else if (pointerTypePair.second == typeid(float).name()) {
-                ListElement<float>* ele = static_cast<ListElement<float>*>(pointerTypePair.first);
-                std::cout << ele->getData() << std::endl;
-            }
-            else if (pointerTypePair.second == typeid(long).name()) {
-                ListElement<long>* ele = static_cast<ListElement<long>*>(pointerTypePair.first);
-                std::cout << ele->getData() << std::endl;
-            }
-            else if (pointerTypePair.second == typeid(std::string).name()) {
-                ListElement<std::string>* ele = static_cast<ListElement<std::string>*>(pointerTypePair.first);
-                std::cout << ele->getData() << std::endl;
-            }
-            else if (pointerTypePair.second == typeid(unsigned char).name()) {
-                ListElement<unsigned char>* ele = static_cast<ListElement<unsigned char>*>(pointerTypePair.first);
-                std::cout << ele->getData() << std::endl;
-            }
-            else if (pointerTypePair.second == typeid(short).name()) {
-                ListElement<short>* ele = static_cast<ListElement<short>*>(pointerTypePair.first);
-                std::cout << ele->getData() << std::endl;
-            }
-            else if (pointerTypePair.second == typeid(unsigned long).name()) {
-                ListElement<unsigned long>* ele = static_cast<ListElement<unsigned long>*>(pointerTypePair.first);
-                std::cout << ele->getData() << std::endl;
-            }
-            else if (pointerTypePair.second == typeid(char).name()) {
-                ListElement<char>* ele = static_cast<ListElement<char>*>(pointerTypePair.first);
-                std::cout << ele->getData() << std::endl;
-            }
-            else {
-                std::cout << "Type not supported!" << std::endl;
-            }
-        }
-    }
-
 protected:
 
     //Contains the void pointer to each templated type and the string of the type
